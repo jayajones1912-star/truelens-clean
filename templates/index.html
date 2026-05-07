@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TrueLens AI System</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h1>TrueLens</h1>
+</nav>
+
+<div class="container">
+
+    <!-- INPUT CARD -->
+    <div class="card">
+        <h2>Multimodal Video Analysis System</h2>
+        <p>Upload a video to analyze authenticity risk using explainable AI scoring.</p>
+
+        <textarea id="userInput" placeholder="Optional description..."></textarea>
+
+        <input type="file" id="videoInput" accept="video/*">
+
+        <video id="videoPreview" controls></video>
+
+        <div class="buttons">
+            <button onclick="submitInput()">Analyze</button>
+            <button onclick="loadExample()">Try Example</button>
+        </div>
+
+        <!-- LOADING -->
+        <div id="loading" class="hidden loading-box">
+            <div class="spinner"></div>
+            <p>Analyzing video with TrueLens AI...</p>
+        </div>
+    </div>
+
+    <!-- RESULT CARD -->
+    <div id="resultCard" class="card hidden">
+
+        <h3>Analysis Result</h3>
+
+        <p><strong>Risk Level:</strong> <span id="resultText"></span></p>
+
+        <p><strong>Confidence Score:</strong> <span id="confidence"></span></p>
+
+        <div class="score-container">
+            <div id="scoreBar"></div>
+        </div>
+
+        <p><strong>Detected Indicators (click to explore):</strong></p>
+        <div id="noteContainer" class="note-box"></div>
+
+        <!-- HCAI DISCLAIMER -->
+        <div class="disclaimer">
+            ⚠️ Note: This system is rule-based and provides estimations only. 
+            Results should not be interpreted as fully accurate or definitive.
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
