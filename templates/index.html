@@ -1,70 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>TrueLens AI System</title>
-
-    <link rel="stylesheet" href="/static/style.css">
+    <title>TrueLens AI Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<nav class="navbar">
-    <h1>TrueLens</h1>
-</nav>
-
 <div class="container">
 
-    <!-- INPUT CARD -->
+    <h1>TrueLens AI Video Analyzer</h1>
+
     <div class="card">
-        <h2>Multimodal Video Analysis System</h2>
-        <p>Upload a video to analyze authenticity risk using explainable AI scoring.</p>
 
-        <textarea id="userInput" placeholder="Optional description..."></textarea>
+        <h2>Analyze Video</h2>
 
-        <input type="file" id="videoInput" accept="video/*">
+        <!-- FILE UPLOAD FORM -->
+        <form method="POST" enctype="multipart/form-data">
 
-        <video id="videoPreview" controls></video>
+            <h3>Upload File</h3>
+            <input type="file" name="file">
 
-        <div class="buttons">
-            <button onclick="submitInput()">Analyze</button>
-            <button onclick="loadExample()">Try Example</button>
-        </div>
+            <br><br>
 
-        <!-- LOADING -->
-        <div id="loading" class="hidden loading-box">
-            <div class="spinner"></div>
-            <p>Analyzing video with TrueLens AI...</p>
-        </div>
-    </div>
+            <button type="submit">Analyze Uploaded Video</button>
+        </form>
 
-    <!-- RESULT CARD -->
-    <div id="resultCard" class="card hidden">
+        <hr>
 
-        <h3>Analysis Result</h3>
+        <!-- URL FORM -->
+        <form method="POST">
 
-        <p><strong>Risk Level:</strong> <span id="resultText"></span></p>
+            <h3>OR Paste Video URL</h3>
+            <input type="text" name="url" placeholder="Paste video link here" style="width:100%; padding:10px;">
 
-        <p><strong>Confidence Score:</strong> <span id="confidence"></span></p>
+            <br><br>
 
-        <div class="score-container">
-            <div id="scoreBar"></div>
-        </div>
-
-        <p><strong>Detected Indicators (click to explore):</strong></p>
-        <div id="noteContainer" class="note-box"></div>
-
-        <!-- HCAI DISCLAIMER -->
-        <div class="disclaimer">
-            ⚠️ Note: This system is rule-based and provides estimations only. 
-            Results should not be interpreted as fully accurate or definitive.
-        </div>
+            <button type="submit">Analyze URL</button>
+        </form>
 
     </div>
 
 </div>
-
-<script src="/static/script.js"></script>
 
 </body>
 </html>
